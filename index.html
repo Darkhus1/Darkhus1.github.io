@@ -57,17 +57,26 @@
  <body>
   <script>
   // alert in het begin
-  var person = prompt("Level 1 : City \nWHEN YOUR SCREEN DOESN'T SEEM RIGHT / LOOK GOOD, ZOOM OUT AND REFRESH!! \nPlease enter your name", "" );
+  var person = prompt("Level 1 : City \nWHEN YOUR SCREEN DOESN'T SEEM RIGHT / LOOK GOOD, ZOOM OUT AND REFRESH!! \nPlease enter your name \n", "" );
   
   var seconds = 0;
   
   // scoreboard
   function SubmitScore(){
+   if(person){
    
-   var url = "http://gmscoreboard.com/handle_score.php?tagid=576926575a72b14665088871935&player=" +person +"&score=" +seconds;
+    var url = "http://gmscoreboard.com/handle_score.php?tagid=576926575a72b14665088871935&player=" +person +"&score=" +seconds;
    
-   window.open(url);  
+    window.open(url);  
+	
+    } 
+
+   else{
    
+    person = prompt("Please enter your name \n", "" );
+   
+    }    
+	
    }
    
    
@@ -82,7 +91,7 @@
   //uitzoomen van scherm voor lagere resolutions 	
   if (window.screen.availWidth < 1900){
   
-   document.getElementById("zoom").style.zoom = 0.75;
+   document.body.style.zoom = 0.75;
   
    }
 
