@@ -57,7 +57,7 @@
  <body>
   <script>
   // alert in het begin
-  var person = prompt("Level 1 : City \nWHEN YOUR SCREEN DOESN'T SEEM RIGHT / LOOK GOOD, ZOOM OUT AND REFRESH!! \nPlease enter your name \n", "" );
+  var person = prompt("Level 1 : City\n \nWHEN YOUR SCREEN DOESN'T SEEM RIGHT / LOOK GOOD, ZOOM OUT AND REFRESH!!\n \nPlease enter your name \n", "" );
   
   var seconds = 0;
   
@@ -115,7 +115,13 @@
     document.body.style.zoom = 0.75;
   
     }
+	
+   else{
    
+    document.getElementById("timer").style.left = window.innerWidth / 100 * 70; 
+    document.getElementById("timer").style.top = 200;
+   
+    }
    }, 1000);
  	
   
