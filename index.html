@@ -103,7 +103,7 @@
 	
 	 player.y = 985;
 	 player.x = 600;
-	 time = true;
+	 time = false;
 	 
 	 } 
 	 
@@ -113,6 +113,8 @@
 	 player.y = 985;
 	 player.x = 600;
 	 document.getElementById("button").style.visibility = "hidden";
+	 time = true;
+	 won = false;
 	 
 	 }
 	 
@@ -675,14 +677,15 @@ function colCheck(shapeA, shapeB) {
 	 //window.scrollTo( player.x - 300, player.y - 100);
 	 if (player.y < 10 && won == false){
 	  alert("You Successfully Completed This Level! Congratulations!");
-	  won = true;
-      time = false;	  
 	  
-	  document.getElementById("button").style.visibility = "visible";
+	  setTimeout(function(){
+                	  won = true;
+                     time = false;	  
+	                Retry(true);
+	               document.getElementById("button").style.visibility = "visible"
+			      }, 1);
 	  
-	  Retry(true);
-	  
-	  }
+	 }
 	 
 	 
 	 if (player.y < 520) {
@@ -690,6 +693,8 @@ function colCheck(shapeA, shapeB) {
 	  window.scrollTo(0, 0);
 	  
 	  }
+	  
+
 	  
 	 else {
 	 
