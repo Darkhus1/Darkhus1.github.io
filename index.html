@@ -45,9 +45,9 @@
    
   </b>
   
+  <button type="button" onclick="Controls()" style="visibility:visible;font-size:100%;">Controls</button>
   
-  
-  <button type="button" onclick="Retry()" style ="visibility:visible;font-size:100%;">Retry</button>
+  <button type="button" onclick="Retry(false)" style ="visibility:visible;font-size:100%;">Retry</button>
   
   <button type="button" onclick="ShowScores()" style="visibility:visible;font-size:100%;">Show All Scores</button>
   
@@ -97,15 +97,32 @@
    
     }
 	
-   function Retry(){
+   function Retry(won){
    
-    seconds = 0;
-	player.y = 985;
-	player.x = 600;
-   
-    } 
+    if(won == true){
+	
+	 player.y = 985;
+	 player.x = 600;
+	
+	 } 
+	 
+ 	else if(won == false){
+	
+     seconds = 0;
+	 player.y = 985;
+	 player.x = 600;
+	 
+	 }
+	 
+	 
+	 
+   } 
 
-   	
+   function Controls(){
+   
+    alert("Right: D - Arrow Right \nLeft: Q - A - Arrow Left \nJump: W - Z - Space - Arrow Up \nRetry: R")
+   
+    }	
 	
  
 
@@ -141,6 +158,7 @@
     document.getElementById("timer").style.top = 200;
    
     }
+	
    }, 1000);
  	
   
@@ -421,7 +439,7 @@ function update() {
 	//utility keys
 	if(keys[82]){
 	
-	 Retry();
+	 Retry(false);
 	
 	
 	 }
@@ -660,7 +678,7 @@ function colCheck(shapeA, shapeB) {
 	  
 	  document.getElementById("button").style.visibility = "visible";
 	  
-	  Retry();
+	  Retry(true);
 	  
 	  }
 	 
