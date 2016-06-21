@@ -1,5 +1,5 @@
 <html>
- <head>
+ <head id="zoom" style="zoom:1;">
  
   <canvas id="canvas" style="border:1px solid black:z-index:1;">
 	
@@ -57,7 +57,7 @@
  <body>
   <script>
   // alert in het begin
-  var person = prompt("Level 1 : \nCity Please enter your name :", "");
+  var person = prompt("Level 1 : City \nWHEN YOUR SCREEN DOESN'T SEEM RIGHT / LOOK GOOD, ZOOM OUT AND REFRESH!! \nPlease enter your name", "" );
   
   var seconds = 0;
   
@@ -78,6 +78,13 @@
 	window.open(url);
    
     }
+	
+  //uitzoomen van scherm voor lagere resolutions 	
+  if (window.screen.availWidth < 1900){
+  
+   document.getElementById("zoom").style.zoom = 0.75;
+  
+   }
 
   //zegt wat playerDirection is
   var playerDirection = "right";
