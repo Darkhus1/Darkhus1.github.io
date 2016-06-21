@@ -45,13 +45,18 @@
    
   </b>
   
+  <button type="button" onclick="Retry()" style ="visibility:visible;font-size:100%;">Retry</button>
+  
   <button type="button" onclick="ShowScores()" style="visibility:visible;font-size:100%;">Show All Scores</button>
   
   <button type="button" onclick="SubmitScore()" style="visibility:hidden;font-size:100%;" id="button">Submit My Score</button>
   
   
   
+  
+  
   </div> 
+  
   
  </head>
  <body>
@@ -87,6 +92,16 @@
 	window.open(url);
    
     }
+	
+   function Retry(){
+   
+    seconds = 0;
+	player.y = 985;
+	player.x = 600;
+   
+    } 
+
+   	
 	
  
 
@@ -396,6 +411,16 @@ function update() {
 			 playerDirection = "left";
         }
      }
+	
+	
+	
+	//utility keys
+	if(keys[82]){
+	
+	 Retry();
+	
+	
+	 }
 	
 	
 	 //animations
