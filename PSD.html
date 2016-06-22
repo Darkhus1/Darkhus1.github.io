@@ -1,0 +1,736 @@
+<html>
+ <head id="zoom" style="zoom:1;">
+ 
+  <canvas id="canvas" style="border:1px solid black:z-index:1;">
+	
+  </canvas>	
+ 
+  <title>
+  
+    Parkour Game!
+	
+  </title>
+  
+  
+  <img src="200x10 platform.png" id="200x10pf" style="position:absolute;">
+  
+  <img src="200x10 platform.png" id="150x10pf1" style="position:absolute;" width="150px" height="10px">
+  <img src="200x10 platform.png" id="150x10pf2" style="position:absolute;" width="150px" height="10px">
+  
+  <img src="200x10 platform.png" id="100x10pf1" style="position:absolute;" width="100px" height="10px">
+  <img src="200x10 platform.png" id="100x10pf2" style="position:absolute;" width="100px" height="10px">
+  <img src="200x10 platform.png" id="100x10pf3" style="position:absolute;" width="100px" height="10px">
+  <img src="200x10 platform.png" id="100x10pf4" style="position:absolute;" width="100px" height="10px">
+  
+  <img src="200x10 platform.png" id="50x10pf1" style="position:absolute;" width="50px" height="10px">
+  <img src="200x10 platform.png" id="50x10pf2" style="position:absolute;" width="50px" height="10px">
+  <img src="200x10 platform.png" id="50x10pf3" style="position:absolute;" width="50px" height="10px">
+  <img src="200x10 platform.png" id="50x10pf4" style="position:absolute;" width="50px" height="10px">
+  
+  <img src="200x10 platform.png" id="20x10pf" style="position:absolute;" width="20px" height="10px">
+  
+  <img src="200x10 platform.png" id="125x10pf" style="position:absolute;" width="125px" height="10px">
+  
+  <img src="200x10 platform.png" id="25x10pf" style="position:absolute;" width="25px" height="10px">
+  
+  <img src="walking.gif" id="walking.gif" style="position:absolute;">
+  <img src="walking2.gif" id="walking2.gif" style="position:absolute;">
+  <img src="standing.gif" id="player" style="position:absolute;">
+  <img src="jumping.png" id="jumping.png" style="position:absolute;">
+  <img src="jumping2.png" id="jumping2.png" style="position:absolute;">
+  
+  <div id="timer" style="position:absolute;font-size:200%;">
+   <p style="font-size:180%;">Your Time :</p>
+   <p id="time"> </p> 
+   
+  </b>
+  
+  <button type="button" onclick="Controls()" style="visibility:visible;font-size:100%;">Controls</button>
+  
+  <button type="button" onclick="Retry(false)" style ="visibility:visible;font-size:100%;">Retry</button>
+  
+  <button type="button" onclick="ShowScores()" style="visibility:visible;font-size:100%;">Show All Scores</button>
+  
+  <button type="button" onclick="SubmitScore()" style="visibility:hidden;font-size:100%;" id="button">Submit My Score</button>
+  
+  
+  
+  
+  
+  
+  
+  </div> 
+  
+  
+ </head>
+ <body>
+  <script>
+  // alert in het begin
+  var person = prompt("Level 1 : City\n \nWHEN YOUR SCREEN DOESN'T SEEM RIGHT / LOOK GOOD, ZOOM OUT AND REFRESH!!\n \nPlease enter your name \n", "" );
+  
+  var seconds = 0;
+  
+  // scoreboard
+  function SubmitScore(){
+   if(person){
+   
+    var url = "http://gmscoreboard.com/handle_score.php?tagid=576926575a72b14665088871935&player=" +person +"&score=" +seconds;
+   
+    window.open(url);  
+	
+    } 
+
+   else{
+   
+    person = prompt("Please enter your name \n", "" );
+   
+    }    
+	
+   }
+   
+   
+   function ShowScores(){
+   
+    var url = "http://gmscoreboard.com/PixelSlav-Deluxe";
+	
+	window.open(url);
+   
+    }
+	
+   function Retry(won){
+   
+    if(won == true){
+	
+	 player.y = 985;
+	 player.x = 600;
+	 time = false;
+	 
+	 } 
+	 
+ 	else if(won == false){
+	
+     seconds = 0;
+	 player.y = 985;
+	 player.x = 600;
+	 document.getElementById("button").style.visibility = "hidden";
+	 time = true;
+	 won = false;
+	 
+	 }
+	 
+	 
+	 
+   } 
+
+   function Controls(){
+   
+    alert("Right: D - Arrow Right \nLeft: Q - A - Arrow Left \nJump: W - Z - Space - Arrow Up \nRetry: R")
+   
+    }	
+	
+ 
+
+  //zegt wat playerDirection is
+  var playerDirection = "right";
+  
+  var jumping = false;
+  
+  var time = true;
+  
+  var timing = setInterval(function(){
+
+
+   if (time == true) {
+   
+    seconds = seconds + 1;
+   
+    }
+	
+   document.getElementById("timer").style.left = window.innerWidth / 100 * 90; 
+   document.getElementById("timer").style.top = 200;	
+   
+   //uitzoomen van scherm voor lagere resolutions 	
+   if (window.screen.availWidth < 1900){
+  
+    document.body.style.zoom = 0.75;
+  
+    }
+	
+   else{
+   
+    document.getElementById("timer").style.left = window.innerWidth / 100 * 70; 
+    document.getElementById("timer").style.top = 200;
+   
+    }
+	
+   }, 1000);
+ 	
+  
+  // id of the player image + id of platform
+ 
+  var playerR = document.getElementById("player");
+  
+  
+  document.getElementById("200x10pf").style.left = 808; 
+  document.getElementById("200x10pf").style.top = 858;	
+  
+  
+  
+  
+  document.getElementById("150x10pf1").style.left = 458; 
+  document.getElementById("150x10pf1").style.top = 758;	
+  
+  document.getElementById("150x10pf2").style.left = 733; 
+  document.getElementById("150x10pf2").style.top = 283;	
+  
+  
+  
+  
+  document.getElementById("100x10pf1").style.left = 208; 
+  document.getElementById("100x10pf1").style.top = 758;	
+  
+  document.getElementById("100x10pf2").style.left = 808; 
+  document.getElementById("100x10pf2").style.top = 608;	
+  
+  document.getElementById("100x10pf3").style.left = 958; 
+  document.getElementById("100x10pf3").style.top = 458;	
+  
+  document.getElementById("100x10pf4").style.left = 8; 
+  document.getElementById("100x10pf4").style.top = 308;	
+  
+  
+  
+  
+  document.getElementById("50x10pf1").style.left = 58; 
+  document.getElementById("50x10pf1").style.top = 708;
+   
+  document.getElementById("50x10pf2").style.left = 233; 
+  document.getElementById("50x10pf2").style.top = 508;	   
+  
+  document.getElementById("50x10pf3").style.left = 533; 
+  document.getElementById("50x10pf3").style.top = 483;	
+  
+  document.getElementById("50x10pf4").style.left = 1108; 
+  document.getElementById("50x10pf4").style.top = 308;	
+
+
+  
+  
+  document.getElementById("20x10pf").style.left = 8; 
+  document.getElementById("20x10pf").style.top = 558;
+
+
+  
+  
+  document.getElementById("125x10pf").style.left = 358; 
+  document.getElementById("125x10pf").style.top = 283;
+
+
+  
+  
+  document.getElementById("25x10pf").style.left = 8; 
+  document.getElementById("25x10pf").style.top = 158;	
+  
+  
+  document.getElementById("walking.gif").style.left = -100;
+  document.getElementById("walking.gif").style.top = 100;
+  
+  
+  
+	//engine : movement + collision detection + map
+	
+	//loop (ingewikkeld)
+  (function () {
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.requestAnimationFrame = requestAnimationFrame;
+})();
+
+   //object : canvas + player
+
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    width = 1200,
+    height = 1000,
+    player = {
+        x: width / 2,
+        y: height - 15,
+        width: 35,
+        height: 35,
+        speed: 8,
+        velX: 0,
+        velY: 0,
+        jumping: false,
+        grounded: false
+    },
+    keys = [],
+    friction = 0.8,
+    gravity = 0.4;
+
+	//map
+	
+	
+var boxes = [];
+  
+  boxes.push({
+    x: 800,
+    y: 850,
+    width: 200,
+    height: 10
+});
+
+  boxes.push({
+    x: 450,
+    y: 750,
+    width: 150,
+    height: 10
+});
+
+boxes.push({
+    x: 200,
+    y: 750,
+    width: 100,
+    height: 10
+});
+
+boxes.push({
+    x: 50,
+    y: 700,
+    width: 50,
+    height: 10
+});
+
+boxes.push({
+    x: 0,
+    y: 550,
+    width: 20,
+    height: 10
+});
+
+boxes.push({
+    x: 225,
+    y: 500,
+    width: 50,
+    height: 10
+});
+
+boxes.push({
+    x: 525,
+    y: 475,
+    width: 50,
+    height: 10
+});
+
+boxes.push({
+    x: 800,
+    y: 600,
+    width: 100,
+    height: 10
+});
+
+boxes.push({
+    x: 950,
+    y: 450,
+    width: 100,
+    height: 10
+});
+
+boxes.push({
+    x: 1100,
+    y: 300,
+    width: 50,
+    height: 10
+});
+
+boxes.push({
+    x: 725,
+    y: 275,
+    width: 150,
+    height: 10
+});
+
+boxes.push({
+    x: 350,
+    y: 275,
+    width: 125,
+    height: 10
+});
+
+boxes.push({
+    x: 0,
+    y: 300,
+    width: 100,
+    height: 10
+});
+
+boxes.push({
+    x: 0,
+    y: 150,
+    width: 25,
+    height: 10
+});
+
+// dimensions
+
+
+ //boundries
+boxes.push({
+    x: 0,
+    y: 0,
+    width: 10,
+    height: height
+});
+boxes.push({
+    x: 0,
+    y: height - 2,
+    width: width,
+    height: 50
+});
+boxes.push({
+    x: width - 10,
+    y: 0,
+    width: 50,
+    height: height
+});
+
+  //EXAMPLE
+//boxes.push({
+    //x: 270,
+    //y: 150,
+    //width: 40,
+    //height: 40
+//});
+
+
+
+canvas.width = width;
+canvas.height = height;
+
+ //movement
+
+function update() {
+    // check keys
+    if (keys[38] || keys[32] || keys[87] || keys[90]) {
+	 
+        // up arrow or space or w or z
+        if (!player.jumping && player.grounded) {
+            player.jumping = true;
+            player.grounded = false;
+            player.velY = -player.speed * 1.5;
+        }
+     }
+	 
+	 // || means, OR 
+	 // && means, AND
+	 
+    if (keys[39] || keys[68]) {
+        // right arrow or d 
+        if (player.velX < player.speed) {
+            player.velX++;
+		     playerDirection = "right";
+        }
+     }
+	 
+    if (keys[37] || keys[65] || keys[81]) {
+        // left arrow or a or q
+        if (player.velX > -player.speed) {
+            player.velX--;
+			 playerDirection = "left";
+        }
+     }
+	
+	
+	
+	//utility keys
+	if(keys[82]){
+	
+	 Retry(false);
+	
+	
+	 }
+	
+	
+	 //animations
+	 
+	 
+	  
+	  //if walked right, change animation
+	  if (playerDirection == "right") {
+	    
+       playerR = document.getElementById("walking.gif");
+		
+	   }
+	  //if walked left, change animation
+	  if (playerDirection == "left") {
+	  
+       playerR = document.getElementById("walking2.gif");	  
+	  
+	   }
+	   
+	  //if jumping to right, change animation
+	  if (jumping == true && playerDirection == "right") {
+	  
+	   playerR = document.getElementById("jumping.png");
+	   
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("walking.gif").style.left = -100;
+       document.getElementById("walking.gif").style.top = 100;
+	   
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("jumping2.png").style.left = -100;
+       document.getElementById("jumping2.png").style.top = 100;
+	   }
+	   
+	  //if jumping to left, change animation 
+	  if (jumping == true && playerDirection == "left") {
+	  
+	   playerR = document.getElementById("jumping2.png");
+	   
+	   // wegdoen, NIET toevoegen
+       document.getElementById("walking2.gif").style.left = -100;
+       document.getElementById("walking2.gif").style.top = 100;
+	   
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("jumping.png").style.left = -100;
+       document.getElementById("jumping.png").style.top = 100;
+	   
+	   }
+	   
+	  //if jumping static, change animation
+	  if (jumping == true && playerDirection == "standing") {
+	  
+	   playerR = document.getElementById("jumping.png");
+	   
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("walking.gif").style.left = -100;
+       document.getElementById("walking.gif").style.top = 100;
+	   
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("jumping2.png").style.left = -100;
+       document.getElementById("jumping2.png").style.top = 100;
+	   
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("player").style.left = -100;
+       document.getElementById("player").style.top = 100;
+	   }
+	    
+	   
+	  // if standing, change animation
+	  else if (playerDirection == "standing") {
+	  
+	   playerR = document.getElementById("player");
+	   
+	   }
+	  
+	  //check if jumping
+	  if (player.velY < 0){
+	   
+	   jumping = true;
+	 
+	   }
+	   
+	  else {
+	  
+	   jumping = false; 
+	  
+	   }
+	   
+	  // check for standing or not
+	  if (player.velX < 0.5 && player.velX > -0.5) {
+	   
+	    playerDirection = "standing";
+	    
+	   }
+	   
+	   
+	  //walkRight animation weg
+	  if (playerDirection != "right"){
+	  
+       // wegdoen, NIET toevoegen
+       document.getElementById("walking.gif").style.left = -100;
+       document.getElementById("walking.gif").style.top = 100;
+    
+       }
+	  //standAnimation weg
+	  if (playerDirection != "standing") {
+	  
+       // wegdoen, NIET toevoegen
+       document.getElementById("player").style.left = -100;
+       document.getElementById("player").style.top = 100;
+	  
+	   }
+	  //walkLeft animation weg	
+	  if (playerDirection != "left") {
+	  
+	   // wegdoen, NIET toevoegen
+	   document.getElementById("walking2.gif").style.left = -100;
+       document.getElementById("walking2.gif").style.top = 100;
+	    
+	   }
+	  
+	  //jumpAnimation weg
+	  if (jumping == false) {
+	  
+       // wegdoen, NIET toevoegen	  
+	   document.getElementById("jumping.png").style.left = -100;
+       document.getElementById("jumping.png").style.top = 100; 
+	   
+	   document.getElementById("jumping2.png").style.left = -100;
+       document.getElementById("jumping2.png").style.top = 100;
+	  
+	   }
+	 
+	  
+    player.velX *= friction;
+    player.velY += gravity;
+
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    
+    player.grounded = false;
+    for (var i = 0; i < boxes.length; i++) {
+        ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        
+        var dir = colCheck(player, boxes[i]);
+
+        if (dir === "l" || dir === "r") {
+            player.velX = 0;
+            player.jumping = false;
+        } else if (dir === "b") {
+            player.grounded = true;
+            player.jumping = false;
+        } else if (dir === "t") {
+            player.velY *= -1;
+        }
+
+    }
+    
+    if(player.grounded){
+         player.velY = 0;
+    }
+    
+    player.x += player.velX;
+    player.y += player.velY;
+	
+	// end movement
+	
+	//rendering
+    
+    ctx.fill();
+    ctx.fillStyle = "red";
+    ctx.fillRect( 10, 10, 1180, 5);
+	
+	var background = new Image();
+     background.src = "background.png";
+
+// Make sure the image is loaded first otherwise nothing will draw.
+      //ctx.drawImage(background,0,0); 
+      document.getElementById("canvas").style.backgroundImage = "url('background.png')";
+	  
+    requestAnimationFrame(update);
+}
+
+  //collision detection
+
+function colCheck(shapeA, shapeB) {
+    // get the vectors to check against
+    var vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2)),
+        vY = (shapeA.y + (shapeA.height / 2)) - (shapeB.y + (shapeB.height / 2)),
+        // add the half widths and half heights of the objects
+        hWidths = (shapeA.width / 2) + (shapeB.width / 2),
+        hHeights = (shapeA.height / 2) + (shapeB.height / 2),
+        colDir = null;
+
+    // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
+    if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
+        // figures out on which side we are colliding (top, bottom, left, or right)
+        var oX = hWidths - Math.abs(vX),
+            oY = hHeights - Math.abs(vY);
+        if (oX >= oY) {
+            if (vY > 0) {
+                colDir = "t";
+                shapeA.y += oY;
+            } else {
+                colDir = "b";
+                shapeA.y -= oY;
+            }
+        } else {
+            if (vX > 0) {
+                colDir = "l";
+                shapeA.x += oX;
+            } else {
+                colDir = "r";
+                shapeA.x -= oX;
+            }
+        }
+    }
+    return colDir;
+}
+
+    var won = false;
+    
+ // loop FOR SCROLLING AND WINNING AND STUFF
+	
+	var loop2 = setInterval(function(){
+	 playerR.style.top = player.y + 9;
+     playerR.style.left = player.x + 9;
+	 //window.scrollTo( player.x - 300, player.y - 100);
+	 if (player.y < 10 && won == false){
+	  alert("You Successfully Completed This Level! Congratulations!");
+	  
+	  setTimeout(function(){
+                	  won = true;
+                     time = false;	  
+	                Retry(true);
+	               document.getElementById("button").style.visibility = "visible"
+			      }, 1);
+	  
+	 }
+	 
+	 
+	 if (player.y < 520) {
+	 
+	  window.scrollTo(0, 0);
+	  
+	  }
+	  
+
+	  
+	 else {
+	 
+      window.scrollTo(0, 500);
+	  
+	  }
+	  
+	 document.getElementById("time").innerHTML = seconds + " seconds";
+	
+	
+	}, 1);
+	 
+
+ // events
+
+document.body.addEventListener("keydown", function (e) {
+    keys[e.keyCode] = true;
+	if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+});
+
+document.body.addEventListener("keyup", function (e) {
+    keys[e.keyCode] = false;
+	if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+});
+
+ // checks if everything is loaded
+window.addEventListener("load", function () {
+    update();
+});
+  
+
+ 
+  </script>
+ </body>
+</html>
