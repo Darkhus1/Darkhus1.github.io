@@ -485,13 +485,129 @@
 			BOXC9.visible = seeoutline;
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
+			/////////////////////////OutsideWalls/////////////////////////////////////////////////////////////////////////
+			var OWall1 = new THREE.Mesh( new THREE.BoxGeometry( 8000, 300, 15), materialB );
+			OWall1.position.set( 0, 150, -4000);
+			scene.add( OWall1 );
+			OWall1.visible = seeoutline;
+			
+			var OWall2 = new THREE.Mesh( new THREE.BoxGeometry( 15, 300, 8000), materialB );
+			OWall2.position.set( -4000, 150, 0);
+			scene.add( OWall2 );
+			OWall2.visible = seeoutline;
+			
+			var OWall3 = new THREE.Mesh( new THREE.BoxGeometry( 8000, 300, 15), materialB );
+			OWall3.position.set( 0, 150, 4000);
+			scene.add( OWall3 );
+			OWall3.visible = seeoutline;
+			
+			var OWall4 = new THREE.Mesh( new THREE.BoxGeometry( 15, 300, 8000), materialB );
+			OWall4.position.set( 4000, 150, 0);
+			scene.add( OWall4 );
+			OWall4.visible = seeoutline;
+			/////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			//////////////////////////////INNER1////////////////////////////////////////////////////
+			var Inner1Wall1 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 1690), materialB );
+			Inner1Wall1.position.set( 925, 110, 75);
+			scene.add( Inner1Wall1 );
+			Inner1Wall1.visible = seeoutline;
+			
+			var Inner1Wall2 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 1690), materialB );
+			Inner1Wall2.position.set( -925, 110, -75);
+			scene.add( Inner1Wall2 );
+			Inner1Wall2.visible = seeoutline;
+			
+			var Inner1Wall3 = new THREE.Mesh( new THREE.BoxGeometry( 1690, 220, 15), materialB );
+			Inner1Wall3.position.set( -75, 110, 925);
+			scene.add( Inner1Wall3 );
+			Inner1Wall3.visible = seeoutline;
+			
+			var Inner1Wall4 = new THREE.Mesh( new THREE.BoxGeometry( 1690, 220, 15), materialB );
+			Inner1Wall4.position.set( 75, 110, -925);
+			scene.add( Inner1Wall4 );
+			Inner1Wall4.visible = seeoutline;
+			
+			//////////////////////////////////////////////////////////////////////////////////////////////
+			
+			//////////////////////INNER2//////////////////////////////////////////////////////////////////
+			var Inner2Wall1 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 700), materialB );
+			Inner2Wall1.position.set( 925, 110, 1270);
+			scene.add( Inner2Wall1 );
+			Inner2Wall1.visible = seeoutline;
+			
+			var Inner2Wall2 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 700), materialB );
+			Inner2Wall2.position.set( -920, 110, 1270);
+			scene.add( Inner2Wall2 );
+			Inner2Wall2.visible = seeoutline;
+			
+			var Inner2Wall3 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 700), materialB );
+			Inner2Wall3.position.set( 925, 110, -1270);
+			scene.add( Inner2Wall3 );
+			Inner2Wall3.visible = seeoutline;
+			
+			var Inner2Wall4 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 700), materialB );
+			Inner2Wall4.position.set( -920, 110, -1270);
+			scene.add( Inner2Wall4 );
+			Inner2Wall4.visible = seeoutline;
+			
+			var Inner2Wall5 = new THREE.Mesh( new THREE.BoxGeometry( 700, 220, 15), materialB );
+			Inner2Wall5.position.set( -1270, 110, 925);
+			scene.add( Inner2Wall5 );
+			Inner2Wall5.visible = seeoutline;
+			
+			var Inner2Wall6 = new THREE.Mesh( new THREE.BoxGeometry( 700, 220, 15), materialB );
+			Inner2Wall6.position.set( 1270, 110, 925);
+			scene.add( Inner2Wall6 );
+			Inner2Wall6.visible = seeoutline;
+			
+			var Inner2Wall7 = new THREE.Mesh( new THREE.BoxGeometry( 700, 220, 15), materialB );
+			Inner2Wall7.position.set( 1270, 110, -925);
+			scene.add( Inner2Wall7 );
+			Inner2Wall7.visible = seeoutline;
+			
+			var Inner2Wall8 = new THREE.Mesh( new THREE.BoxGeometry( 700, 220, 15), materialB );
+			Inner2Wall8.position.set( -1270, 110, -925);
+			scene.add( Inner2Wall8 );
+			Inner2Wall8.visible = seeoutline;
+			
+			var Inner2Wall9 = new THREE.Mesh( new THREE.BoxGeometry( 1690, 220, 15), materialB );
+			Inner2Wall9.position.set( 72.5, 110, 1612.5);
+			scene.add( Inner2Wall9 );
+			Inner2Wall9.visible = seeoutline;
+			
+			var Inner2Wall10 = new THREE.Mesh( new THREE.BoxGeometry( 1690, 220, 15), materialB );
+			Inner2Wall10.position.set( -72.5, 110, -1612.5);
+			scene.add( Inner2Wall10 );
+			Inner2Wall10.visible = seeoutline;
+			
+			var Inner2Wall11 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 1690), materialB );
+			Inner2Wall11.position.set( -1612.5, 110, 72.5);
+			scene.add( Inner2Wall11 );
+			Inner2Wall11.visible = seeoutline;
+			
+			var Inner2Wall12 = new THREE.Mesh( new THREE.BoxGeometry( 15, 220, 1690), materialB );
+			Inner2Wall12.position.set( 1612.5, 110, -72.5);
+			scene.add( Inner2Wall12 );
+			Inner2Wall12.visible = seeoutline;
+			
+			/////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			
+			
+			
+			
+			
+			
+			
 			var CollisionDetection = setInterval(function(){
 			
 			
 			
 		
 		   
-		   //dynamic collision
+		    //dynamic collision
+		   
 			
 			//////////////////////////////////SPAWN/////////////////////////////////////////
 			//                PLAYER            OBJECT  AFMETINGEN VAN OBJECT
@@ -514,11 +630,60 @@
 			
 			TestandPrevCol(controls.getObject(), BOXC9, 260, 80, 260);
 			
+			////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////OutsideWall//////////////////////////////////////
 			
+			TestandPrevCol(controls.getObject(), OWall1, 8015, 300, 30);
+			
+			TestandPrevCol(controls.getObject(), OWall2, 30, 300, 8015);
+			
+			TestandPrevCol(controls.getObject(), OWall3, 8015, 300, 30);
+			
+			TestandPrevCol(controls.getObject(), OWall4, 30, 300, 8015);
+			
+		    ///////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////INNER1/////////////////////////////////////
+			
+			TestandPrevCol(controls.getObject(), Inner1Wall1, 30, 220, 1705);
+			
+			TestandPrevCol(controls.getObject(), Inner1Wall2, 30, 220, 1705);
+			
+			TestandPrevCol(controls.getObject(), Inner1Wall3, 1705, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner1Wall4, 1705, 220, 30);
+			
+			/////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////INNER2//////////////////////////////////////////////////////////
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall1, 30, 220, 715);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall2, 30, 220, 715);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall3, 30, 220, 715);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall4, 30, 220, 715);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall5, 715, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall6, 715, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall7, 715, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall8, 715, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall9, 1705, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall10, 1705, 220, 30);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall11, 30, 220, 1705);
+			
+			TestandPrevCol(controls.getObject(), Inner2Wall12, 30, 220, 1705);
+			
+			////////////////////////////////////////////////////////////////////////////////////////////
 			
 			
 			}, 0.0025);
-			////////////////////////////////////////////////////////////////////////////////////////////           
+			           
                     
 			var raycaster = new THREE.Raycaster();
 			intersectionss = raycaster.intersectObjects( objects );
