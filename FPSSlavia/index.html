@@ -425,10 +425,12 @@
 			}
 			
 			
-			var seeoutline = false;
+			var seeoutline = true;
 			
 			
 			materialB = new THREE.MeshPhongMaterial( { specular: 0xffffff, shading: THREE.FlatShading} );
+			
+			///////////////////////////////////SPAWN/////////////////////////////////////////////////////////////////////////////
             //          altijd NEW                  geometry = vorm                   material = hoe eruitziet
 			var BOXC = new THREE.Mesh( new THREE.BoxGeometry( 60, 100, 15), materialB );
 			// geeft een plek / positie
@@ -481,7 +483,7 @@
 			BOXC9.position.set( 0, 130, 0);
 			scene.add( BOXC9 );
 			BOXC9.visible = seeoutline;
-			
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			var CollisionDetection = setInterval(function(){
 			
@@ -491,7 +493,7 @@
 		   
 		   //dynamic collision
 			
-			
+			//////////////////////////////////SPAWN/////////////////////////////////////////
 			//                PLAYER            OBJECT  AFMETINGEN VAN OBJECT
 			TestandPrevCol(controls.getObject(), BOXC, 65, 100, 20);
 			
@@ -516,7 +518,7 @@
 			
 			
 			}, 0.0025);
-			            
+			////////////////////////////////////////////////////////////////////////////////////////////           
                     
 			var raycaster = new THREE.Raycaster();
 			intersectionss = raycaster.intersectObjects( objects );
