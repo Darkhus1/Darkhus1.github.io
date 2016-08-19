@@ -78,8 +78,10 @@
 		
 	</head>
 	<body>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r76/three.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
 		<script src="Engine.js"></script>
+		<script src="http://code.createjs.com/soundjs-0.5.2.min.js"></script>
+		<script src="Sounds.js"></script>
 		<script>
 			
 			setupworld(80, 0.1, 100000, 0xffffff, true, window.devicePixelRatio);
@@ -88,7 +90,7 @@
             renderworld(true);
 			loadcolmap('scene.json');
 			lockpointer();
-            createplayer(20,50,20, 0.0015, 7, 10);
+            createplayer(30,75,20, 0.0015, 7, 10);
 			//          width,height,depth, sensitivity, playerspeed, sprintspeed
 			
             createplayercontrols(87,65,83,68,69,32,16,350);	
@@ -98,11 +100,10 @@
           		//        true/false, intensity( default 0.005, do not put too high unless you want a seizure )
 							  
 			
-
 			
-			//initializecombat('gun.png', 338, 479, 'gun.gif', 250, 50);
-			                 //Idle animation, width, height, fire animation, speed of fire animation, damege inflicted by gun  ( var playerdamege )
-			//createcrosshair('Crosshair.png', 50, 50);
+			initializecombat('/Textures/revolver.png', 338, 479, '/Textures/revolverShooting.png', 250, 50);
+			                 //Idle animation, width, height, fire animation, speed of fire animation, damage inflicted by gun  ( var playerdamege )
+			createcrosshair('/Textures/Crosshair.png', 75, 75);
 			                 // src , width ,height
 			
 			

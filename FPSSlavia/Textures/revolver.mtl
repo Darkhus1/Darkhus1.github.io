@@ -1,0 +1,16 @@
+# Blender MTL File: 'revolver_webley_mkii_blue_engraved.blend'
+# Material Count: 1
+
+newmtl revovler-webly_mkii_blue_engraved
+Ns 249.019608
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Len\AppData\Local\Temp\Rar$DRa0.502\textures\revolver-webley_mkii_brown\revolver-webley_mkii_brown_dif.png
+map_Bump  C:\\Users\\Len\\AppData\\Local\\Temp\\Rar$DRa0.502\\textures\\revolver-webley_mkii_blue_engraved\\revolver-webley_mkii_blue_engraved_nor.png
+map_Ks  C:\\Users\\Len\\AppData\\Local\\Temp\\Rar$DRa0.502\\textures\\revolver-webley_mkii_blue_engraved\\revolver-webley_mkii_blue_engraved_spec.png
+map_Ns  C:\\Users\\Len\\AppData\\Local\\Temp\\Rar$DRa0.502\\textures\\revolver-webley_mkii_blue_engraved\\revolver-webley_mkii_blue_engraved_spec.png

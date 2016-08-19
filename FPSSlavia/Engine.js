@@ -23,6 +23,9 @@ var firegunanimation;
 var crosshair;
 var botgrav = 0.01;
 
+var gun = "revolver";
+var revolver;
+
 var deflectrate = 1;
 
 var HitPointCol;
@@ -743,8 +746,8 @@ function initializecombat(idle, xi, yi, fire, firedur, playerd){
 gunanimation = new Image();
 gunanimation.src = idle;
 gunanimation.style.position = "absolute";
-gunanimation.style.top = window.innerHeight / 2;
-gunanimation.style.left = window.innerWidth / 2 - xi / 2;
+gunanimation.style.top = window.innerHeight - 397;
+gunanimation.style.left = window.innerWidth / 1.5;
 document.getElementById('HUD').appendChild(gunanimation);
 
 playerdamege = playerd;
@@ -770,6 +773,11 @@ document.body.onclick = function (e) {
 		gunanimation.src = firesrc;
 		setTimeout(function(){ firedgun = false; gunanimation.src = idlesrc; canfire = true; }, fireduration);
 		
+		if (gun == "revolver"){
+			
+		  createjs.Sound.play("revolverSound");
+		 
+		 }
 		
 		
 		
@@ -816,7 +824,20 @@ if (controlsEnabled){
       
    
 	
+	if (gun == "revolver")	{
 		
+		
+	 idlesrc = "/Textures/revolver.png";
+	 firesrc = "/Textures/revolverShooting.png";
+	 
+	 
+     if (gunanimation.src = fire) {
+		 
+	   
+		 
+	  }	 
+		
+	}
 	    
 			
 			
@@ -825,7 +846,7 @@ if (controlsEnabled){
 			
 			
 
-}
+ }
 }, 1);			
 			
 
