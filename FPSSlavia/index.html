@@ -82,6 +82,8 @@
 		<script src="Engine.js"></script>
 		<script src="https://code.createjs.com/soundjs-0.5.2.min.js"></script>
 		<script src="Sounds.js"></script>
+		
+		
 		<script>
 			
 			setupworld(80, 0.1, 100000, 0xffffff, true, window.devicePixelRatio);
@@ -103,10 +105,15 @@
 			
 			initializecombat('/FPSSlavia/Textures/revolver.png', 338, 479, '/Textures/revolverShooting.png', 250, 50);
 			                 //Idle animation, width, height, fire animation, speed of fire animation, damage inflicted by gun  ( var playerdamege )
+							 
 			createcrosshair('/FPSSlavia/Textures/Crosshair.png', 75, 75);
 			                 // src , width ,height
 			
+			createhpicon('/FPSSlavia/Textures/hp.png', 200, 200);
+			//             src, width, height
 			
+			createhotbar('/FPSSlavia/Textures/hotbar.png', 590, 103);
+			//            src, width, height
 			
 			
 			var loop = setInterval(function(){ 
@@ -123,16 +130,26 @@
             var loop = setInterval(function(){ 
             
 			
-		     //spawnenemies( map.getObjectByName( "Enemy", true ), 500, 2)
+		     spawnenemies( map.getObjectByName( "TentacleEnemy", true ), 500, 2)
              //                                                    followdistance, gravity
 
 
-			}, 5000);	    			
+			}, 20000);	    			
 			
 			
 			
 
 			
 		</script>
+		
+		
+		
+		
+		<script src="Hud.js"></script>
+		
+		
+		
+		
+		
 	</body>
 </html>

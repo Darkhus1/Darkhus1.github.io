@@ -22,6 +22,9 @@ var gunanimation;
 var firegunanimation;
 var crosshair;
 var botgrav = 0.01;
+var hpicon;
+var hudHP;
+var hotbar;
 
 var gun = "revolver";
 var revolver;
@@ -608,7 +611,7 @@ if (controlsEnabled){
 	}
 
 }
-}, 1);
+}, 1000 / 30);
 
 var LogPlayerPosition = setInterval(function(){ 
     
@@ -704,7 +707,7 @@ if (getDistanceAI(item, 'prevpp') < nodedistance){
 	
 	
 }		
-/////////////////COMBAT///////////////////////
+/////////////////COMBAT + PARTS OF HUD///////////////////////
 
 var firesrc;
 var fireduration;
@@ -723,6 +726,7 @@ var crossx;
 var crossy;
 
 
+
 function createcrosshair(src, sizex, sizey){
 	
 crossx = sizex;
@@ -739,6 +743,42 @@ document.getElementById('HUD').appendChild(crosshair);
 	
 	
 }
+
+var hpx;
+var hpy;
+
+function createhpicon(src, sizex, sizey){
+	
+hpx = sizex;
+hpy = sizey;
+
+hpicon = new Image();
+hpicon.src = src;
+hpicon.style.position = "absolute";
+hpicon.style.top = window.innerHeight - sizey;
+hpicon.style.left = 0;
+document.getElementById('HUD').appendChild(hpicon);
+
+
+}
+
+var hotbarx;
+var hotbary;
+
+function createhotbar(src, sizex, sizey){
+	
+	hotbarx = sizex;
+	hotbary = sizey;
+	
+	hotbar = new Image();
+	hotbar.src = src;
+	hotbar.style.position = "absolute";
+	hotbar.style.top = window.innerHeight - sizey - 20;
+	hotbar.style.left = window.innerWidth / 2 - sizex / 2;
+	document.getElementById('HUD').appendChild(hotbar);
+	
+}
+
 
 
 function initializecombat(idle, xi, yi, fire, firedur, playerd){
