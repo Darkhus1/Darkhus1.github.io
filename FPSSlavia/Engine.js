@@ -827,8 +827,8 @@ if (controlsEnabled){
 	if (gun == "revolver")	{
 		
 		
-	 idlesrc = "/Textures/revolver.png";
-	 firesrc = "/Textures/revolverShooting.png";
+	 idlesrc = "/FPSSlavia/Textures/revolver.png";
+	 firesrc = "/FPSSlavia/Textures/revolverShooting.png";
 	 
 	 
      if (gunanimation.src = fire) {

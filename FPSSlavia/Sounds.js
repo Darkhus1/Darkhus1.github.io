@@ -1,3 +1,3 @@
 // Guns
 
- createjs.Sound.registerSound("/Sounds/revolverSound.ogg", "revolverSound");
+ createjs.Sound.registerSound("/FPSSlavia/Sounds/revolverSound.ogg", "revolverSound");
