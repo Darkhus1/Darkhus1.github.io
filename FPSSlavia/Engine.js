@@ -831,11 +831,6 @@ if (controlsEnabled){
 	 firesrc = "/FPSSlavia/Textures/revolverShooting.png";
 	 
 	 
-     if (gunanimation.src = fire) {
-		 
-	   
-		 
-	  }	 
 		
 	}
 	    
